@@ -62,13 +62,16 @@
     </el-table>
     <!-- 弹出层 -->
     <el-dialog title="电影详情" v-model="dialogFormVisible" size="small">
-      <el-form label-width="80px" :model="movieInfo">
+      <el-form label-width="120px" :model="movieInfo">
         <el-form-item label="电影名称">
           <el-input v-model="movieInfo.title"></el-input>
         </el-form-item>
-        <el-form-item label="海报地址">
+        <el-form-item label="海报地址-小图">
           <el-input v-model="movieInfo.poster"></el-input>
         </el-form-item>
+          <el-form-item v-show="isAdd" label="海报地址-大图">
+            <el-input v-model="movieInfo.poster_lg"></el-input>
+          </el-form-item>
         <el-form-item label="类型">
           <el-input v-model="genres" placeholder="请用空格分开输入类型"></el-input>
         </el-form-item>
@@ -96,7 +99,8 @@
         movieInfo: {
           title: '',
           poster:'',
-          genres: '',
+          poster_lg:'',
+          genres: [],
           rating: ''
         },
         genres:'',
@@ -180,7 +184,7 @@
           });
         },
         handleEdit(index, row) {
-          this.genres = row.genres.join();
+          this.genres = row.genres.join(' ');
           this.dialogFormVisible = true;
           // 不能直接将row对象赋值给this.movieInfo，这样存在两个对象间的引用
           // 所以需要返回一个新对象给this.movieInfo

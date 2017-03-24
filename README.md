@@ -16,7 +16,9 @@
 
 > 操作指令
 
-```bash
+```shell
+npm install 安装依赖
+
 npm run dev 使用webpack开启前端资源的打包编译
 
 npm run data  从豆瓣获取几条源数据

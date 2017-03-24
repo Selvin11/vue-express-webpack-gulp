@@ -11,8 +11,20 @@
               <img :src="movie.poster_lg" class="image">
           </el-col>
           <el-col :span="14" :style="{textAlign:'left'}">
-            <p>{{movie.title}} —— {{movie.original_title}}</p>
-            <div>
+            <p><strong>{{movie.title}}</strong> —— <small>{{movie.original_title}}</small></p>
+            <p>
+              类型：
+              <el-tag 
+                class="tag" 
+                v-for="(item,index) in movie.genres" 
+                key="index">
+                  {{item}}
+              </el-tag>
+            </p>
+            <p>
+              评分：{{movie.rating}}
+            </p>
+            <div v-if="movie.directors && movie.casts">
               <p>导演: </p>
               <el-row>
                 <el-col :span="6" v-for="(item,index) in movie.directors" key="index" justify="center" align="middle">
@@ -20,8 +32,6 @@
                     <img :src="item.avatars.small" alt="">
                 </el-col>
               </el-row>
-            </div>
-            <div>
               <p>主演: </p>
               <el-row>
                 <el-col :span="6" v-for="(item,index) in movie.casts" key="index" justify="center" align="middle">
@@ -53,7 +63,7 @@
               this.$message.error(`${err.message}`, 'ERROR!')
               console.log(err)
           })
-
+      
     }
   }
 </script>
