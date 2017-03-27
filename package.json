@@ -6,7 +6,7 @@
     "private": true,
     "scripts": {
         "dev": "node build/dev-server.js",
-        "server": "nodemon server.js",
+        "server": "gulp",
         "build": "node build/build.js",
         "data": "node server/db/data.js",
         "lint": "eslint --ext .js,.vue src"
