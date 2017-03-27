@@ -23,7 +23,7 @@ npm run dev 使用webpack开启前端资源的打包编译
 
 npm run data  从豆瓣获取几条源数据
 
-gulp  启动服务端并开启浏览器
+npm run server  启动服务端并开启浏览器
 
 ```
 
