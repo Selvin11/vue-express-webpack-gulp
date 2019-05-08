@@ -13,7 +13,7 @@
         label="电影海报"
         align="center"
         >
-        <template scope="movie">
+        <template slot-scope="movie">
           <el-row type="flex" class="row-bg" justify="center" align="middle">
             <img :src="movie.row.poster" alt="">
           </el-row>
@@ -23,7 +23,7 @@
         label="电影名称"
         align="center"
         >
-        <template scope="movie">
+        <template slot-scope="movie">
           <p>{{ movie.row.title }}</p>
         </template>
       </el-table-column>
@@ -31,7 +31,7 @@
         label="评分"
         align="center"
         >
-        <template scope="movie">
+        <template slot-scope="movie">
           <p>{{ movie.row.rating}}</p>
         </template>
       </el-table-column>
@@ -39,7 +39,7 @@
         label="类型"
         align="center"
         >
-        <template scope="movie">
+        <template slot-scope="movie">
           <el-tag 
             class="tag" 
             v-for="(item,index) in movie.row.genres" 
@@ -49,7 +49,7 @@
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center">
-        <template scope="movie">
+        <template slot-scope="movie">
           <el-button
             size="small"
             @click.stop="handleEdit(movie.$index, movie.row)">编辑</el-button>
